@@ -8,6 +8,8 @@ services:
     startCommand: "gunicorn -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:$PORT --timeout 120"
     healthCheckPath: /
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
       - key: LLM_PROVIDER
         value: groq
       - key: GROQ_API_KEY
