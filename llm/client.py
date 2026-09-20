@@ -170,13 +170,21 @@ def _call_provider(provider: str, model: str, system: str, user: str, api_key: s
         resp = httpx.post(
             PROVIDER_ENDPOINTS[provider],
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json={"model": model, "messages": [{"role": "system", "content": system},
-                                                 {"role": "user", "content": user}], "max_tokens": 400},
+                        json={"model": model, "messages": [{"role": "system", "content": system},
+                                                 {"role": "user", "content": user}], "max_tokens": 1024},
             timeout=20.0,
         )
         resp.raise_for_status()
-        return resp.json()["choices"][0]["message"]["content"]
-
+        content = resp.json()["choices"][0]["message"]["content"]
+        if not content or not content.strip():
+            # Reasoning models (e.g. Groq's openai/gpt-oss-20b) can spend their
+            # whole token budget on hidden internal reasoning and return an
+            # empty final answer. Treat that the same as any other provider
+            # failure so the caller falls back to the honest template engine
+            # instead of showing a blank response.
+            raise ValueError(f"Provider '{provider}' returned an empty response (model may have "
+                              f"exhausted its token budget on internal reasoning)")
+        return content
     if provider == "anthropic":
         resp = httpx.post(
             PROVIDER_ENDPOINTS[provider],
