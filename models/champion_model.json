@@ -1,0 +1,21 @@
+{
+  "champion": "gradient_boosting",
+  "selection_rationale": "'gradient_boosting' selected: WAPE 23.14% (beats baseline 25.85%), inference 1.207ms/1k rows, forecast bias -0.22%. Chosen over other viable candidates by balancing accuracy, latency, and bias magnitude \u2014 not WAPE alone.",
+  "champion_metrics": {
+    "model": "gradient_boosting",
+    "mae": 11.83,
+    "rmse": 15.928,
+    "mape_pct": 29.68,
+    "wape_pct": 23.14,
+    "forecast_bias_pct": -0.22,
+    "n": 8370,
+    "inference_ms_per_1000_rows": 1.207,
+    "vs_true_demand_wape_pct": 26.02
+  },
+  "baseline_wape_pct": 25.85,
+  "trained_at": "2026-09-16T12:32:05.331435+00:00",
+  "train_rows": 30330,
+  "val_rows": 8100,
+  "test_rows": 8370,
+  "feature_count": 59
+}

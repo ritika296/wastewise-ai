@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+WORKDIR /app
+
+# System deps for xgboost/shap/mlflow wheels
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY backend/requirements.txt backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
+
+# Copy the whole project (ml/, llm/, monitoring/, backend/, data/, models/
+# folders — models/data start empty; entrypoint.sh trains on first boot)
+COPY . .
+
+COPY docker/entrypoint.sh /app/docker/entrypoint.sh
+RUN chmod +x /app/docker/entrypoint.sh
+
+EXPOSE 8001
+ENTRYPOINT ["/bin/sh", "/app/docker/entrypoint.sh"]

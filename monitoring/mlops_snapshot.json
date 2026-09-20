@@ -1,0 +1,235 @@
+{
+  "champion": {
+    "version_id": "xgboost-v1",
+    "model_name": "xgboost",
+    "metrics": {
+      "model": "xgboost",
+      "mae": 11.785,
+      "rmse": 15.928,
+      "mape_pct": 28.93,
+      "wape_pct": 23.05,
+      "forecast_bias_pct": -1.13,
+      "n": 8370,
+      "inference_ms_per_1000_rows": 3.313,
+      "vs_true_demand_wape_pct": 25.96
+    },
+    "artifact_path": "/home/claude/wastewise-ai/models/xgboost.joblib",
+    "dataset_version": "v1",
+    "notes": "",
+    "registered_at": "2026-09-16T12:43:45.064698+00:00",
+    "status": "champion"
+  },
+  "real_feature_drift": {
+    "per_feature": {
+      "lag_1": {
+        "psi": 0.0108,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "lag_7": {
+        "psi": 0.0092,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "lag_14": {
+        "psi": 0.0086,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "rolling_mean_7": {
+        "psi": 0.0217,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "rolling_mean_14": {
+        "psi": 0.0223,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "rolling_mean_28": {
+        "psi": 0.0172,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "selling_price": {
+        "psi": 0.0003,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "discount": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "promotion_flag": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "day_of_week": {
+        "psi": 0.0005,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "weekend_flag": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "holiday_flag": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "temperature": {
+        "psi": 0.2006,
+        "status": "warning",
+        "excluded_from_trigger": false
+      },
+      "special_event": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false
+      },
+      "month": {
+        "psi": 0.6375,
+        "status": "critical",
+        "excluded_from_trigger": true
+      }
+    },
+    "overall_status": "warning",
+    "max_psi": 0.2006,
+    "n_reference": 10980,
+    "n_current": 8370,
+    "simulated": false,
+    "note": "'month' is measured but excluded from the critical-drift determination \u2014 see CALENDAR_STRUCTURAL_FEATURES for why."
+  },
+  "real_prediction_drift": {
+    "psi": 0.021,
+    "status": "normal",
+    "reference_mean": 48.36,
+    "current_mean": 50.54,
+    "simulated": false
+  },
+  "real_retrain_decision": {
+    "trigger_retrain": false,
+    "reasons": [],
+    "status": "healthy"
+  },
+  "simulated_feature_drift": {
+    "per_feature": {
+      "lag_1": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "lag_7": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "lag_14": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "rolling_mean_7": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "rolling_mean_14": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "rolling_mean_28": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "selling_price": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "discount": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "promotion_flag": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "day_of_week": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "weekend_flag": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "holiday_flag": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "temperature": {
+        "psi": 4.4019,
+        "status": "critical",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "special_event": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": false,
+        "simulated": true
+      },
+      "month": {
+        "psi": 0.0,
+        "status": "normal",
+        "excluded_from_trigger": true,
+        "simulated": true
+      }
+    },
+    "overall_status": "critical",
+    "max_psi": 4.4019,
+    "n_reference": 30330,
+    "n_current": 30330,
+    "simulated": true,
+    "note": "'month' is measured but excluded from the critical-drift determination \u2014 see CALENDAR_STRUCTURAL_FEATURES for why.",
+    "simulation_description": "SIMULATED SCENARIO \u2014 not real production data. Artificially shifted 'temperature' by +12.0 to demonstrate drift detection, e.g. an unseasonal heatwave shifting demand for heat-sensitive items."
+  },
+  "simulated_prediction_drift": {
+    "psi": 0.0038,
+    "status": "normal",
+    "reference_mean": 48.36,
+    "current_mean": 49.09,
+    "simulated": true
+  },
+  "simulated_retrain_decision": {
+    "trigger_retrain": true,
+    "reasons": [
+      "Feature drift critical: max PSI 4.4019 >= 0.25 (worst: temperature=4.4019, lag_1=0.0, lag_7=0.0) [SIMULATED SCENARIO]",
+      "Forecast accuracy degraded: WAPE 23.05% (training) -> 31.12% (recent), a 35% relative increase >= 20% threshold"
+    ],
+    "status": "critical"
+  }
+}

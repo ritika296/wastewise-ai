@@ -1,0 +1,57 @@
+[
+  {
+    "model": "baseline_naive_lag7",
+    "mae": 16.549,
+    "rmse": 22.879,
+    "mape_pct": 39.19,
+    "wape_pct": 32.37,
+    "forecast_bias_pct": -0.63,
+    "n": 8370,
+    "inference_ms_per_1000_rows": 0.023,
+    "vs_true_demand_wape_pct": 34.34
+  },
+  {
+    "model": "baseline_moving_avg_7",
+    "mae": 13.214,
+    "rmse": 18.359,
+    "mape_pct": 32.15,
+    "wape_pct": 25.85,
+    "forecast_bias_pct": -0.14,
+    "n": 8370,
+    "inference_ms_per_1000_rows": 0.008,
+    "vs_true_demand_wape_pct": 28.53
+  },
+  {
+    "model": "random_forest",
+    "mae": 12.05,
+    "rmse": 16.535,
+    "mape_pct": 29.07,
+    "wape_pct": 23.57,
+    "forecast_bias_pct": -1.44,
+    "n": 8370,
+    "inference_ms_per_1000_rows": 16.09,
+    "vs_true_demand_wape_pct": 26.45
+  },
+  {
+    "model": "gradient_boosting",
+    "mae": 11.83,
+    "rmse": 15.928,
+    "mape_pct": 29.68,
+    "wape_pct": 23.14,
+    "forecast_bias_pct": -0.22,
+    "n": 8370,
+    "inference_ms_per_1000_rows": 1.207,
+    "vs_true_demand_wape_pct": 26.02
+  },
+  {
+    "model": "xgboost",
+    "mae": 11.785,
+    "rmse": 15.928,
+    "mape_pct": 28.93,
+    "wape_pct": 23.05,
+    "forecast_bias_pct": -1.13,
+    "n": 8370,
+    "inference_ms_per_1000_rows": 3.313,
+    "vs_true_demand_wape_pct": 25.96
+  }
+]

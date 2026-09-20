@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# Backend runtime data
+backend/*.db
+backend/wastewise.db
+*.db
+
+# MLflow local tracking store
+mlruns/
+mlruns.db
+
+# Env files — NEVER commit real secrets
+.env
+.env.local
+
+# Frontend
+frontend/node_modules/
+
+# OS / editor cruft
+.DS_Store
+.pytest_cache/
+.vscode/

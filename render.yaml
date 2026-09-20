@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: wastewise-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt && pip install xgboost==3.2.0"
+    startCommand: "gunicorn -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:$PORT --timeout 120"
+    healthCheckPath: /
+    envVars:
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: WASTEWISE_DB_URL
+        sync: false

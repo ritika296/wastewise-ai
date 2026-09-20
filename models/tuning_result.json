@@ -1,0 +1,36 @@
+{
+  "phase": "15a_hyperparameter_tuning",
+  "method": "Optuna TPE sampler, 40 trials, optimizing validation WAPE",
+  "search_seconds": 56.3,
+  "n_trials": 40,
+  "best_params": {
+    "n_estimators": 350,
+    "max_depth": 7,
+    "learning_rate": 0.016386477483697093,
+    "subsample": 0.90617549703803,
+    "colsample_bytree": 0.6383402461078013,
+    "min_child_weight": 2,
+    "reg_alpha": 0.6587810954862338,
+    "reg_lambda": 0.007668623677080219
+  },
+  "baseline": {
+    "val_wape_pct": 23.06,
+    "test_wape_pct": 23.05
+  },
+  "tuned": {
+    "val_wape_pct": 23.05,
+    "test_wape_pct": 23.21,
+    "test_metrics_full": {
+      "mae": 11.865,
+      "rmse": 16.1,
+      "mape_pct": 29.0,
+      "wape_pct": 23.21,
+      "forecast_bias_pct": -1.36,
+      "n": 8370
+    }
+  },
+  "val_improved": true,
+  "test_improved": false,
+  "promoted": false,
+  "verdict": "Tuning improved val WAPE (23.06% -> 23.05%) but did NOT meaningfully improve test WAPE (23.05% -> 23.21%). This is a validation-set overfit: the search found hyperparameters that fit val's specific noise, not a generalizable improvement. The untuned baseline champion remains in production."
+}

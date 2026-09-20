@@ -1,0 +1,212 @@
+[
+  {
+    "model": "baseline_naive_lag7",
+    "split": "val",
+    "vs_units_sold": {
+      "mae": 15.773,
+      "rmse": 21.538,
+      "mape_pct": 38.6,
+      "wape_pct": 31.72,
+      "forecast_bias_pct": -0.01,
+      "n": 8100
+    },
+    "vs_true_demand": {
+      "mae": 17.492,
+      "rmse": 24.174,
+      "mape_pct": 40.03,
+      "wape_pct": 33.76,
+      "forecast_bias_pct": -4.06,
+      "n": 8100
+    },
+    "inference_ms_per_1000_rows": 0.023
+  },
+  {
+    "model": "baseline_naive_lag7",
+    "split": "test",
+    "vs_units_sold": {
+      "mae": 16.549,
+      "rmse": 22.879,
+      "mape_pct": 39.19,
+      "wape_pct": 32.37,
+      "forecast_bias_pct": -0.63,
+      "n": 8370
+    },
+    "vs_true_demand": {
+      "mae": 18.258,
+      "rmse": 25.407,
+      "mape_pct": 40.55,
+      "wape_pct": 34.34,
+      "forecast_bias_pct": -4.46,
+      "n": 8370
+    },
+    "inference_ms_per_1000_rows": 0.023
+  },
+  {
+    "model": "baseline_moving_avg_7",
+    "split": "val",
+    "vs_units_sold": {
+      "mae": 12.435,
+      "rmse": 16.895,
+      "mape_pct": 31.49,
+      "wape_pct": 25.01,
+      "forecast_bias_pct": -0.16,
+      "n": 8100
+    },
+    "vs_true_demand": {
+      "mae": 14.43,
+      "rmse": 20.268,
+      "mape_pct": 33.41,
+      "wape_pct": 27.85,
+      "forecast_bias_pct": -4.2,
+      "n": 8100
+    },
+    "inference_ms_per_1000_rows": 0.008
+  },
+  {
+    "model": "baseline_moving_avg_7",
+    "split": "test",
+    "vs_units_sold": {
+      "mae": 13.214,
+      "rmse": 18.359,
+      "mape_pct": 32.15,
+      "wape_pct": 25.85,
+      "forecast_bias_pct": -0.14,
+      "n": 8370
+    },
+    "vs_true_demand": {
+      "mae": 15.168,
+      "rmse": 21.496,
+      "mape_pct": 34.02,
+      "wape_pct": 28.53,
+      "forecast_bias_pct": -3.99,
+      "n": 8370
+    },
+    "inference_ms_per_1000_rows": 0.008
+  },
+  {
+    "model": "random_forest",
+    "split": "val",
+    "vs_units_sold": {
+      "mae": 11.522,
+      "rmse": 15.424,
+      "mape_pct": 29.05,
+      "wape_pct": 23.17,
+      "forecast_bias_pct": -1.02,
+      "n": 8100
+    },
+    "vs_true_demand": {
+      "mae": 13.59,
+      "rmse": 19.028,
+      "mape_pct": 31.1,
+      "wape_pct": 26.23,
+      "forecast_bias_pct": -5.02,
+      "n": 8100
+    },
+    "inference_ms_per_1000_rows": 16.09
+  },
+  {
+    "model": "random_forest",
+    "split": "test",
+    "vs_units_sold": {
+      "mae": 12.05,
+      "rmse": 16.535,
+      "mape_pct": 29.07,
+      "wape_pct": 23.57,
+      "forecast_bias_pct": -1.44,
+      "n": 8370
+    },
+    "vs_true_demand": {
+      "mae": 14.067,
+      "rmse": 20.028,
+      "mape_pct": 31.04,
+      "wape_pct": 26.45,
+      "forecast_bias_pct": -5.24,
+      "n": 8370
+    },
+    "inference_ms_per_1000_rows": 16.09
+  },
+  {
+    "model": "gradient_boosting",
+    "split": "val",
+    "vs_units_sold": {
+      "mae": 11.504,
+      "rmse": 15.407,
+      "mape_pct": 29.04,
+      "wape_pct": 23.14,
+      "forecast_bias_pct": -1.18,
+      "n": 8100
+    },
+    "vs_true_demand": {
+      "mae": 13.571,
+      "rmse": 19.035,
+      "mape_pct": 31.09,
+      "wape_pct": 26.19,
+      "forecast_bias_pct": -5.18,
+      "n": 8100
+    },
+    "inference_ms_per_1000_rows": 1.207
+  },
+  {
+    "model": "gradient_boosting",
+    "split": "test",
+    "vs_units_sold": {
+      "mae": 11.83,
+      "rmse": 15.928,
+      "mape_pct": 29.68,
+      "wape_pct": 23.14,
+      "forecast_bias_pct": -0.22,
+      "n": 8370
+    },
+    "vs_true_demand": {
+      "mae": 13.837,
+      "rmse": 19.373,
+      "mape_pct": 31.62,
+      "wape_pct": 26.02,
+      "forecast_bias_pct": -4.07,
+      "n": 8370
+    },
+    "inference_ms_per_1000_rows": 1.207
+  },
+  {
+    "model": "xgboost",
+    "split": "val",
+    "vs_units_sold": {
+      "mae": 11.477,
+      "rmse": 15.344,
+      "mape_pct": 28.79,
+      "wape_pct": 23.08,
+      "forecast_bias_pct": -1.86,
+      "n": 8100
+    },
+    "vs_true_demand": {
+      "mae": 13.549,
+      "rmse": 19.035,
+      "mape_pct": 30.84,
+      "wape_pct": 26.15,
+      "forecast_bias_pct": -5.83,
+      "n": 8100
+    },
+    "inference_ms_per_1000_rows": 3.313
+  },
+  {
+    "model": "xgboost",
+    "split": "test",
+    "vs_units_sold": {
+      "mae": 11.785,
+      "rmse": 15.928,
+      "mape_pct": 28.93,
+      "wape_pct": 23.05,
+      "forecast_bias_pct": -1.13,
+      "n": 8370
+    },
+    "vs_true_demand": {
+      "mae": 13.805,
+      "rmse": 19.424,
+      "mape_pct": 30.91,
+      "wape_pct": 25.96,
+      "forecast_bias_pct": -4.95,
+      "n": 8370
+    },
+    "inference_ms_per_1000_rows": 3.313
+  }
+]

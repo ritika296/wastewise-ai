@@ -1,0 +1,65 @@
+{
+  "versions": [
+    {
+      "version_id": "random_forest-v1",
+      "model_name": "random_forest",
+      "metrics": {
+        "model": "random_forest",
+        "mae": 12.05,
+        "rmse": 16.535,
+        "mape_pct": 29.07,
+        "wape_pct": 23.57,
+        "forecast_bias_pct": -1.44,
+        "n": 8370,
+        "inference_ms_per_1000_rows": 16.09,
+        "vs_true_demand_wape_pct": 26.45
+      },
+      "artifact_path": "/home/claude/wastewise-ai/models/random_forest.joblib",
+      "dataset_version": "v1",
+      "notes": "",
+      "registered_at": "2026-09-16T12:43:45.063888+00:00",
+      "status": "retired"
+    },
+    {
+      "version_id": "gradient_boosting-v1",
+      "model_name": "gradient_boosting",
+      "metrics": {
+        "model": "gradient_boosting",
+        "mae": 11.83,
+        "rmse": 15.928,
+        "mape_pct": 29.68,
+        "wape_pct": 23.14,
+        "forecast_bias_pct": -0.22,
+        "n": 8370,
+        "inference_ms_per_1000_rows": 1.207,
+        "vs_true_demand_wape_pct": 26.02
+      },
+      "artifact_path": "/home/claude/wastewise-ai/models/gradient_boosting.joblib",
+      "dataset_version": "v1",
+      "notes": "",
+      "registered_at": "2026-09-16T12:43:45.064302+00:00",
+      "status": "registered"
+    },
+    {
+      "version_id": "xgboost-v1",
+      "model_name": "xgboost",
+      "metrics": {
+        "model": "xgboost",
+        "mae": 11.785,
+        "rmse": 15.928,
+        "mape_pct": 28.93,
+        "wape_pct": 23.05,
+        "forecast_bias_pct": -1.13,
+        "n": 8370,
+        "inference_ms_per_1000_rows": 3.313,
+        "vs_true_demand_wape_pct": 25.96
+      },
+      "artifact_path": "/home/claude/wastewise-ai/models/xgboost.joblib",
+      "dataset_version": "v1",
+      "notes": "",
+      "registered_at": "2026-09-16T12:43:45.064698+00:00",
+      "status": "champion"
+    }
+  ],
+  "current_champion_version": "xgboost-v1"
+}

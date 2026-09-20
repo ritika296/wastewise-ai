@@ -1,0 +1,16 @@
+{
+  "phase": "15c_multiday_recursive_forecast",
+  "horizon_days": 7,
+  "n_series_evaluated": 20,
+  "sample_seed": 42,
+  "wape_pct_by_step": {
+    "1": 21.6,
+    "2": 42.1,
+    "3": 30.88,
+    "4": 19.23,
+    "5": 24.78,
+    "6": 21.31,
+    "7": 23.67
+  },
+  "note": "WAPE grows from step 1 to the middle of the horizon because lag_1 increasingly relies on the model's own earlier predictions rather than real history, then partially recovers toward step 7 because lag_7/lag_14 remain anchored to real observed history throughout."
+}

@@ -1,0 +1,50 @@
+{
+  "total_records": 49369,
+  "valid_records": 49167,
+  "invalid_records": 202,
+  "checks": {
+    "schema": {
+      "missing_columns": [],
+      "unexpected_columns": [],
+      "status": "pass"
+    },
+    "missing_values": {
+      "total_missing_cells": 148,
+      "missing_pct": 0.016,
+      "by_column": {
+        "temperature": 148
+      }
+    },
+    "duplicates": {
+      "count": 49,
+      "pct": 0.099
+    },
+    "invalid_dates": {
+      "count": 0
+    },
+    "negative_values": {
+      "negative_prices": 6,
+      "negative_sales": 0,
+      "negative_inventory": 0
+    },
+    "outliers": {
+      "count": 10,
+      "method": "z-score > 5, per item_id"
+    },
+    "inventory_consistency": {
+      "units_sold_exceeds_inventory": 0
+    },
+    "unexpected_categorical_values": {
+      "unexpected_categories": 0,
+      "unexpected_weather_conditions": 0
+    },
+    "freshness": {
+      "latest_record_date": "2026-07-02",
+      "days_stale": 76,
+      "status": "stale"
+    }
+  },
+  "overall_score": 99.59,
+  "status": "pass",
+  "generated_at": "2026-09-16T12:23:29.387168+00:00"
+}

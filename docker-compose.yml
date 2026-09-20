@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    ports:
+      - "8001:8001"
+    environment:
+      # Provider-configurable LLM (Section 25) — unset = template fallback,
+      # zero-cost, zero-key-required. Set any of these to switch providers.
+      - LLM_PROVIDER=${LLM_PROVIDER:-template}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - WASTEWISE_DB_URL=${WASTEWISE_DB_URL:-}
+    volumes:
+      # Persist generated data/models across restarts — the entrypoint's
+      # idempotent check means a restart with this volume intact skips
+      # retraining; deleting the volume forces a fresh run. (mlruns.db,
+      # MLflow's own tracking store, is NOT volume-mounted here — it's a
+      # single file, and named volumes mount onto directories; losing it
+      # on container recreation only loses experiment-tracking history,
+      # not anything the API reads at runtime, so this is an acceptable
+      # PoC simplification, not silently swept under the rug.)
+      - wastewise_data:/app/data
+      - wastewise_models:/app/models
+      - wastewise_monitoring:/app/monitoring
+      - wastewise_backend_state:/app/backend
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/')"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s   # first boot trains the full pipeline — give it time
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # --- Production-stage services (documented, not required for the PoC) ---
+  # postgres:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     POSTGRES_DB: wastewise
+  #     POSTGRES_USER: wastewise
+  #     POSTGRES_PASSWORD: change_me
+  #   volumes: [pg_data:/var/lib/postgresql/data]
+
+volumes:
+  wastewise_data:
+  wastewise_models:
+  wastewise_monitoring:
+  wastewise_backend_state:
+  # pg_data:

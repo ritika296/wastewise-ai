@@ -1,0 +1,121 @@
+{
+  "phase": "15b_timeseries_challenger",
+  "method": "Holt-Winters Exponential Smoothing (statsmodels), additive trend + weekly seasonality",
+  "n_series_sampled": 15,
+  "n_series_total": 90,
+  "sample_seed": 42,
+  "xgboost_wins": 15,
+  "holt_winters_wins": 0,
+  "mean_wape_pct": {
+    "xgboost": 24.78,
+    "holt_winters": 45.36
+  },
+  "per_series": [
+    {
+      "series": "Hyderabad - Gachibowli | Gajar Halwa",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 46.37,
+      "xgboost_wape_pct": 28.24,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Bengaluru - Koramangala | Paneer Butter Masala",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 40.36,
+      "xgboost_wape_pct": 24.15,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Hyderabad - Gachibowli | Soup of the Day",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 182.35,
+      "xgboost_wape_pct": 27.96,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Pune - Kalyani Nagar | Gajar Halwa",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 53.58,
+      "xgboost_wape_pct": 29.75,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Bengaluru - Koramangala | Butter Chicken",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 35.74,
+      "xgboost_wape_pct": 21.06,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Bengaluru - Koramangala | Tandoori Roti",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 23.66,
+      "xgboost_wape_pct": 21.79,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Hyderabad - Gachibowli | Fresh Lime Soda",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 56.97,
+      "xgboost_wape_pct": 22.04,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Pune - Kalyani Nagar | Chicken Lollipop",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 27.33,
+      "xgboost_wape_pct": 25.98,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Bengaluru - Koramangala | Gajar Halwa",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 49.29,
+      "xgboost_wape_pct": 27.32,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Hyderabad - Gachibowli | Jeera Rice",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 28.35,
+      "xgboost_wape_pct": 23.83,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Pune - Kalyani Nagar | Palak Paneer",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 27.04,
+      "xgboost_wape_pct": 25.78,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Hyderabad - Gachibowli | Chicken Lollipop",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 32.46,
+      "xgboost_wape_pct": 22.83,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Hyderabad - Gachibowli | Tandoori Roti",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 24.34,
+      "xgboost_wape_pct": 23.51,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Pune - Kalyani Nagar | Tandoori Roti",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 26.59,
+      "xgboost_wape_pct": 24.98,
+      "xgboost_wins": true
+    },
+    {
+      "series": "Bengaluru - Koramangala | Gulab Jamun",
+      "n_test_days": 93,
+      "holt_winters_wape_pct": 26.03,
+      "xgboost_wape_pct": 22.55,
+      "xgboost_wins": true
+    }
+  ],
+  "verdict": "XGBoost champion wins on 15/15 sampled series (mean WAPE 24.78% vs Holt-Winters 45.36%). XGBoost's advantage comes from using cross-series features (price, promotion, weather, holiday flags) that a single-series time-series model cannot see at all \u2014 Holt-Winters only ever looks at that one item's own history. Holt-Winters remains valuable as a fast, interpretable, zero-training-data fallback for brand-new items with no feature history yet."
+}
